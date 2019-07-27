@@ -14,7 +14,7 @@ body {
   max-width: 700px;
   color: #eee;
 }
-.navbar{
+.navbar, h3{
   padding: 10px 20px;
   text-align: center;
   background: #4e4b4e

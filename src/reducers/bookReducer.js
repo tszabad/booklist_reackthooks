@@ -11,12 +11,30 @@ export const bookReducer = (state, action) => {
     case 'REMOVE_BOOK':
       return state.filter(book => book.id !== action.id);
     case 'UPDATE_BOOK':
-        return  [...state, 
-          state.map(book => {
-              return book.id === action.payload.id ? action.payload : book;
-          })
-        ]
+      
+        return state.map((book, id) => {
+          
+          if(book.id === action.id) {
+            
+            return {
+              ...book,  
+              title: action.book.title, 
+              author: action.book.author
+            }
+          }
+          return book;
+        })
     default:
       return state;
   }
 } 
+
+
+
+// const id = action.id;
+//const newstate=  state.filter(book => book.id !== action.id);
+       // return [ ...newstate,{
+         // title: action.book.title, 
+        //  author: action.book.author,
+        //  id: id  }  
+          //    ]
